@@ -2,7 +2,9 @@ package com.example.franciscofranco.fragments;
 
 
 import android.app.Fragment;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +40,12 @@ public class MyFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        cm.sendData();
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            cm.sendData();
+        } else {
+            Log.d("FRANCO_DEBUG", "you are in portrait mode");
+        }
+
+
     }
 }
